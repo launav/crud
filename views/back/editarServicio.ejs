@@ -1,0 +1,15 @@
+<%- include('./templates/header') %> 
+    <main class="container my-5">
+        <h1 class="text-center mb-5" >Editar servicio</h1>
+
+        <form action="/servicios/editar" method="POST">
+            <input type="hidden" name="id" id="id" value="<%=servicio.id%>" >
+            <input type="text" id="nombre" name="nombre"  class="form-control mb-2" value="<%=servicio.nombre%>">
+            <textarea name="comentario" id="comentario" rows="10" class="form-control mb-2" ><%=servicio.comentario%></textarea>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-danger">Añadir servicio</button>
+            </div>
+        </form>
+
+    </main>
+<%- include('./templates/footer') %> 
