@@ -1,35 +1,29 @@
-const express=require('express');
-const router=express.Router();
-const {leerServicios,vistaCrearServicio,nuevoServicio,vistaEditarServicio,editarServicio,eliminarServicio,leerUnServicio} =require('../controllers/serviciosController')
-
-//leer todos los servicios
-router.get('/',leerServicios)
+const express = require('express');
+const router = express.Router();
+const { leerServicios, nuevoServicio, leerUnServicio, editarServicio, eliminarServicio, vistaCrearServicio, vistaEditarServicio } = require('../controllers/serviciosControllers')
 
 
+//LEER TODOS LOS SERVICIOS
+router.get('/', leerServicios);
 
-//vista formulario crear nuevo
+//VISTA FORMULARIO CREAR NUEVO
+router.get('/nuevo', vistaCrearServicio);
 
-router.get('/nuevo',vistaCrearServicio)
+//CREAR NUEVO
+router.post('/nuevo', nuevoServicio);
 
-//crear nuevo
-router.post('/nuevo',nuevoServicio)
+//VISTA FORMULARIO EDITAR
+router.get('/editar/:id',vistaEditarServicio);
 
+//EDITAR SERVICIO
+router.post('/editar',editarServicio);
 
+//ELIMINAR SERVICIO
+router.get('/eliminar/:id',eliminarServicio);
 
-//vista forlmiario editar
-router.get('/editar/:id',vistaEditarServicio)
-
-//editar servicio
-router.post('/editar',editarServicio)
-//eliminar servicio
-router.get('/eliminar/:id',eliminarServicio)
-
-//leer un servicio
-router.get('/:id',leerUnServicio)
-
-
+//LEER UN SERVICIO
+router.get('/:id',leerUnServicio);
 
 
+module.exports = router;
 
-
-module.exports=router;
